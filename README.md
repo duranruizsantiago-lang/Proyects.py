@@ -1,3 +1,5 @@
+
+           
 print("----Wellcome to ATM cashup.----")
 
 saldo = 1000
@@ -26,8 +28,7 @@ while True:
             print("Error, ingrese un numero valido")
 
     elif opcion == "2":
-        try:
-            retiro = int(input(f"¿Cuanto desea retirar (minimo ${importe_minimo}):"))
+        try: retiro = int(input(f"¿Cuanto desea retirar (minimo ${importe_minimo}):"))
             
             if retiro < importe_minimo:
                 print(f"Error: el importe minimo a retirar es: ${importe_minimo}.")
