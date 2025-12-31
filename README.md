@@ -1,18 +1,55 @@
-# Proyects.py
+print("----Wellcome to ATM cashup.----")
 
-Simple ATM Simulator
-A lightweight and interactive Command-Line Interface (CLI) application that simulates the core functionalities of an Automated Teller Machine (ATM). This project is designed to demonstrate fundamental programming concepts such as control flow, user input handling, and state management.
+saldo = 1000
+importe_minimo = 20
+while True:
+    print(f"\n====================")
+    print(f"\nSALDO DE LA CUENTA: ${saldo}.")
+    print(f"\n====================")
+    print("1. Ingresar dinero.")
+    print("2. Retirar dinero")
+    print("3. Salir")   
 
-🚀 Features
-Check Balance: Instantly view the current funds available in the account.
+    opcion = input("Seleccione opcion:")        
 
-Deposit Funds: Securely add money to the account balance.
+    
 
-Withdraw Funds: Deduct money from the account with built-in validation to prevent overdrafts (insufficient funds).
+    if opcion == "1":
+        try:
+            ingreso = int(input("¿Cuanto desea ingresar: "))
+            if ingreso > 0:
+                 saldo += ingreso
+                 print(f"Ingreso exitoso, has ingresado: ${ingreso}")
+            else:                   
+                 print("Error: el monto debe ser mayor a 0.")
+        except ValueError:
+            print("Error, ingrese un numero valido")
 
-Persistent Session: A continuous loop that allows multiple transactions until the user chooses to exit.
+    elif opcion == "2":
+        try:
+            retiro = int(input(f"¿Cuanto desea retirar (minimo ${importe_minimo}):"))
+            
+            if retiro < importe_minimo:
+                print(f"Error: el importe minimo a retirar es: ${importe_minimo}.")
+            
+            elif retiro > saldo:
+                print("Error: fondos insuficientes.")
 
-🛠️ Technologies Used
-Language: Python (or the language you are using, e.g., C++, Java, JavaScript)
+            else:
+                saldo -= retiro
+                print(f"Retiro realizado. retire su dinero, su nuevo saldo es: ${saldo} ")
 
-Paradigm: Procedural / Object-Oriented Programming
+        except ValueError:
+             print("Digite solo numeros validos (numeros enteros")
+
+    elif opcion == "3" or opcion.lower() == "salir":
+        print("Gracias por usar ATM cashup. ¡HASTA PRONTRO!.")
+        break
+    
+    else:
+        print("opcion no valida, intente de nuevo.")
+         
+
+                               
+
+   
